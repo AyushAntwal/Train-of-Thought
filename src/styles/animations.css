@@ -1,0 +1,24 @@
+@layer utilities {
+  .radial-orbit {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .radial-orbit::before {
+    content: "";
+    position: absolute;
+    inset: -50%;
+    background: radial-gradient(
+      circle at top center,
+      whitesmoke,
+      #18181b 70%
+    );
+    animation: orbit 4s linear infinite;
+  }
+}
+
+@keyframes orbit {
+  to {
+    transform: rotate(360deg);
+  }
+}
