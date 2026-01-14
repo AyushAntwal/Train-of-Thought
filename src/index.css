@@ -1,8 +1,12 @@
 /* Tailwind v4 – single import */
 @import "tailwindcss";
+@import "./styles/typography.css";
+@import "./styles/animations.css";
 /* =========================
    Theme variables
 ========================= */
+
+@custom-variant dark (&:where(.dark, .dark *));
 
 /* Light mode */
 :root {
@@ -28,11 +32,15 @@
    Base styles
 ========================= */
 
-html {
+html,
+body {
+  width: 100%;
+  height: 100%;
   font-family: "Montserrat", sans-serif, system-ui;
   background-color: rgb(var(--bg));
   color: rgb(var(--text));
   transition: background-color 0.5s ease, color 0.5s ease;
+  scroll-behavior: smooth;
 }
 
 .bg-color {
@@ -51,9 +59,17 @@ button {
 
 @layer base {
   .main {
-    @apply mx-auto container md:max-w-4xl lg:max-w-6xl;
+    @apply mx-auto container md:max-w-3xl lg:max-w-5xl;
   }
   .main-lg {
-    @apply mx-auto container;
+    @apply mx-auto container md:max-w-6xl lg:max-w-7xl;
   }
 }
+
+.divider-x {
+  @apply h-1 border-t w-full;
+}
+.divider-y {
+  @apply h-[98%] border-r w-0;
+}
+

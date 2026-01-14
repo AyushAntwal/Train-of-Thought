@@ -1,5 +1,3 @@
-@import "tailwindcss";
-
 @layer base {
   h1,
   h2,
@@ -9,7 +7,6 @@
   }
 
   /* ===== HEADINGS ===== */
-
   h1,
   .h1 {
     @apply text-[3rem] leading-[1.2] tracking-[-0.015em]
@@ -51,7 +48,6 @@
   }
 
   /* ===== SUBTITLES ===== */
-
   .subtitle1 {
     @apply text-base font-normal leading-[1.75] tracking-[0.00938em];
   }
@@ -61,7 +57,6 @@
   }
 
   /* ===== BODY TEXT ===== */
-
   p,
   .body1 {
     @apply text-base font-normal leading-[1.6];
@@ -72,7 +67,6 @@
   }
 
   /* ===== UI / META TEXT ===== */
-
   .text-button {
     @apply text-sm font-medium leading-[1.75] tracking-[0.02857em] uppercase;
   }
@@ -91,5 +85,74 @@
 
   .text-muted {
     color: rgb(var(--muted));
+  }
+
+  /* ===== MDX CONTENT (EDITORIAL STYLE) ===== */
+  /* ===== MDX CONTENT (EDITORIAL STYLE) ===== */
+  #mdx-content {
+    margin: auto;
+    color: inherit; /* important */
+  }
+
+  /* Paragraphs */
+  #mdx-content p {
+    @apply text-base leading-[1.7] mb-6
+    md:leading-[1.8];
+  }
+
+  /* Headings */
+  #mdx-content h1 {
+    @apply text-[2.25rem] leading-[1.2] font-bold tracking-tight mt-14 mb-6
+    md:text-[3rem] md:leading-[1.15];
+  }
+
+  #mdx-content h2 {
+    @apply text-[1.875rem] leading-[1.25] font-bold tracking-tight mt-12 mb-5
+    md:text-[2.25rem] md:leading-[1.2];
+  }
+
+  #mdx-content h3 {
+    @apply text-[1.5rem] leading-[1.3] font-semibold mt-10 mb-4
+    md:text-[1.75rem] md:leading-[1.25];
+  }
+
+  #mdx-content h4 {
+    @apply text-[1.25rem] leading-[1.35] font-semibold mt-8 mb-3
+    md:text-[1.5rem];
+  }
+
+  #mdx-content h5 {
+    @apply text-[1.125rem] leading-[1.4] font-semibold mt-6 mb-2
+    md:text-[1.25rem];
+  }
+
+  #mdx-content h6 {
+    @apply text-base font-medium leading-[1.6] mt-5 mb-2
+    md:text-[1.125rem];
+  }
+
+  /* Blockquote */
+  #mdx-content blockquote {
+    @apply border-l-4 border-indigo-500 pl-6 my-10 italic text-[1rem] leading-[1.7]
+    md:text-[1.1rem];
+  }
+
+  /* Strong */
+  #mdx-content strong {
+    @apply font-semibold;
+  }
+
+  /* Links */
+  #mdx-content a {
+    @apply underline underline-offset-4;
+  }
+
+  /* Lists */
+  #mdx-content ul {
+    @apply list-disc pl-6 my-6 space-y-2;
+  }
+
+  #mdx-content li {
+    @apply leading-[1.7];
   }
 }

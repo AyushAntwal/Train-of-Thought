@@ -1,12 +1,12 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { RouterProvider } from "react-router-dom";
-import routes from "./routes";
-import "./styles/typography.css";
-
+import TopHeader from "./components/TopHeader";
+import router from "./routes";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <RouterProvider router={routes} />
+    <TopHeader />
+    <RouterProvider router={router} />
   </StrictMode>
 );

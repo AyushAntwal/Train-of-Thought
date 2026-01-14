@@ -1,11 +1,12 @@
 import React from "react";
 import BlogSection from "./BlogSection";
 import AboutSection from "./AboutSection";
+import ContactForm from "@/components/ContactForm";
 
 export default function Home() {
   return (
-    <div className="">
-      <section className="main feature-post  inset-0 ">
+    <main>
+      <section className="main animation-view-delay feature-post  inset-0 ">
         <div className="relative border my-10 mx-8 inset-0 lg:my-28 lg:mx-20">
           <div className="header absolute -top-7 -left-0.5 border bg-color p-2 px-6">
             <h4 className="font-normal tracking-widest">Feature Post</h4>
@@ -31,20 +32,19 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <div className="border-b my-4"></div>
+      <div className="divider-x my-4"></div>
       <main className="main-lg px-2 md:p-5">
         <div className="w-full grid gap-1 inset-0 grid-cols-1 xl:grid-cols-[65%_0.1%_34.9%]">
           <div className="px-1">
             <BlogSection />
           </div>
-          <div className="h-[98%] border-r w-0"></div>
+          <div className="divider-y hidden xl:block"></div>
+          <div className="divider-x xl:hidden mt-10 block"></div>
           <div className="px-1">
             <AboutSection />
           </div>
         </div>
       </main>
-
-      <div className="my-50"></div>
-    </div>
+    </main>
   );
 }

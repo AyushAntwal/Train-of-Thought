@@ -1,36 +1,60 @@
 import { createBrowserRouter } from "react-router-dom";
-import Loader from "./components/Loader";
 import Layout from "./Layout";
+import Loader from "./components/Loader";
 
-export default createBrowserRouter([
+const router = createBrowserRouter([
   {
     path: "/",
     element: <Layout />,
+    hydrateFallbackElement: <Loader />,
+    errorElement: <p>Something went wrong</p>,
     children: [
       {
         index: true,
         lazy: async () => {
-          const module = await import("./pages/home/Home");
-          return { Component: module.default };
+          const { default: Home } = await import("./pages/home/Home");
+          const { blogsLoader } = await import("./pages/loader");
+          return { Component: Home, loader: blogsLoader };
         },
       },
       {
         path: "about",
         lazy: async () => {
-          const module = await import("./pages/about/About");
-          return { Component: module.default };
+          const { default: About } = await import("./pages/about/About");
+          return { Component: About };
         },
       },
       {
-        path: "contact",
-        lazy: async () => {
-          const module = await import("./pages/contact/Contact");
-          return { Component: module.default };
-        },
+        path: "collection",
+        children: [
+          {
+            index: true,
+            lazy: async () => {
+              const { default: Collection } = await import(
+                "./pages/collection/Collection"
+              );
+
+              const { blogsLoader } = await import("./pages/loader");
+              return { Component: Collection, loader: blogsLoader };
+            },
+          },
+          {
+            path: ":id",
+            lazy: async () => {
+              const { default: BlogPage } = await import(
+                "./pages/collection/Post/Post"
+              );
+              const { blogLoader } = await import(
+                "./pages/collection/Post/loader"
+              );
+
+              return { Component: BlogPage, loader: blogLoader };
+            },
+          },
+        ],
       },
     ],
   },
-  {
-    hydrateFallbackElement: <div className="">Loading...</div>,
-  },
 ]);
+
+export default router;

@@ -1,24 +1,80 @@
 @layer utilities {
-  .radial-orbit {
-    position: relative;
-    overflow: hidden;
+  /* =========================
+     Keyframes
+  ========================= */
+  @keyframes slide-in-left {
+    from {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
   }
 
-  .radial-orbit::before {
-    content: "";
-    position: absolute;
-    inset: -50%;
-    background: radial-gradient(
-      circle at top center,
-      whitesmoke,
-      #18181b 70%
-    );
-    animation: orbit 4s linear infinite;
+  @keyframes slide-in-right {
+    from {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
   }
-}
 
-@keyframes orbit {
-  to {
-    transform: rotate(360deg);
+  @keyframes slide-in-bottom {
+    from {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  @keyframes view-delay {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  /* =========================
+     Utilities
+  ========================= */
+  .no-animation {
+    animation: none !important;
+    transition: none !important;
+    animation-duration: none !important;
+  }
+
+  .animate-slide-in-left {
+    animation: slide-in-left 0.8s ease-out both;
+  }
+
+  .animate-slide-in-right {
+    animation: slide-in-right 0.8s ease-out both;
+  }
+
+  .animate-slide-in-bottom {
+    animation: slide-in-bottom 0.8s ease-out both;
+    animation-iteration-count: 1;
+    animation-fill-mode: forward;
+  }
+
+  .animation-view-delay {
+    animation: view-delay 0.3s ease-in both 0.5s;
+    animation-fill-mode: forward;
+    animation-iteration-count: 1;
+  }
+
+  .animation-on-view-delay {
+    animation: slide-in-bottom 0.8s ease-out both;
+    animation-timeline: view();
+    animation-range: entry 10% cover 20%;
   }
 }
