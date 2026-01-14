@@ -1,7 +1,5 @@
-import React from "react";
 import BlogSection from "./BlogSection";
 import AboutSection from "./AboutSection";
-import ContactForm from "@/components/ContactForm";
 
 export default function Home() {
   return (

@@ -1,5 +1,3 @@
-import AnimatedWrapper from "./AnimatedWrapper";
-
 export default function TopHeader() {
   return (
     <section>

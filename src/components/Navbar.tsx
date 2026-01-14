@@ -1,4 +1,4 @@
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { ThemeToggle } from "./ThemeToggle";
 import {
   FaFacebookF,
@@ -24,7 +24,6 @@ const SOCIAL_ICONS = [FaFacebookF, FaInstagram, FaPinterestP, FaXTwitter];
 /* ================= COMPONENT ================= */
 
 export default function Navbar() {
-  const location = useLocation();
   const [open, setOpen] = useState(false);
 
   const linkClass = ({ isActive }: { isActive: boolean }) =>
